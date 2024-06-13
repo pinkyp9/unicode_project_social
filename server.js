@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 import morgan from "morgan";
 import cors from "cors";
 import connectDb from "./config/dbConnection.js"
@@ -20,6 +21,7 @@ app.use(cors());
 app.use(morgan("combined"));
 
 app.use("/user", userRoutes);
+app.use("/post", postRoutes);
 
 app.use((err,req,res,next) => {
     console.error({stackTrace:err.stack,message:err.message});
